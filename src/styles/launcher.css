@@ -1,0 +1,437 @@
+html,
+body,
+#root {
+  overflow: hidden !important;
+}
+:root {
+  /* Primary Energy */
+  --jarvis-cyan: #4deeea;
+
+  /* Main Identity */
+  --jarvis-blue: #5f8cff;
+
+  /* Depth */
+  --jarvis-purple: #8b5cf6;
+
+  /* Accent Only */
+  --jarvis-pink: #ff66cc;
+
+  /* Glass */
+  --jarvis-shell: rgba(255, 255, 255, 0.06);
+
+  /* Border */
+  --jarvis-border: rgba(255, 255, 255, 0.08);
+
+  /* Text */
+  --jarvis-text: rgba(255, 255, 255, 0.95);
+}
+
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+body {
+  background: transparent;
+}
+
+.launcher-root {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent;
+}
+
+.orb {
+  position: relative;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(180, 230, 255, 1) 0%,
+    rgba(120, 190, 255, 0.95) 18%,
+    rgba(70, 130, 255, 0.92) 45%,
+    rgba(35, 75, 255, 0.85) 100%
+  );
+
+  box-shadow:
+    0 0 15px rgba(120, 180, 255, 0.9),
+    0 0 35px rgba(120, 180, 255, 0.7),
+    0 0 70px rgba(120, 180, 255, 0.45),
+    0 0 120px rgba(120, 180, 255, 0.2);
+}
+
+/* Inner energy core */
+.orb::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 18px;
+  height: 18px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(220, 250, 255, 1) 0%,
+    rgba(180, 240, 255, 0.95) 45%,
+    rgba(130, 220, 255, 0.6) 100%
+  );
+
+  filter: blur(2px);
+}
+
+/* Outer energy field */
+.orb::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -8px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(150, 220, 255, 0.25);
+
+  filter: blur(4px);
+}
+
+.command-bar {
+  height: 54px;
+
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 20px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(20px);
+
+  overflow: hidden;
+}
+
+.prompt {
+  color: var(--jarvis-text);
+
+  margin-right: 6px;
+
+  font-size: 18px;
+
+  user-select: none;
+}
+
+.cursor {
+  width: 2px;
+  height: 20px;
+
+  background: white;
+
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.launcher-entity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  transform-origin: center center;
+  
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.05);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(30px);
+
+  box-shadow:
+  0 0 3px rgb(90, 183, 208),
+  0 0 6px rgb(68, 125, 218),
+  0 0 9px rgb(57, 81, 164),
+  0 0 12px rgb(209, 129, 231);
+
+  overflow: hidden;
+}
+
+.energy-core {
+  position: absolute;
+
+  inset: 5px;
+
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+
+  border-radius: inherit;
+
+  background:
+  linear-gradient(
+    90deg,
+    var(--jarvis-cyan),
+    var(--jarvis-blue),
+    var(--jarvis-purple),
+    var(--jarvis-pink),
+    var(--jarvis-purple),
+    var(--jarvis-blue),var(--jarvis-cyan)
+  );
+
+  background-size: 200% 100%;
+
+  animation: energy-flow 4s linear infinite;
+
+  opacity: 0.85;
+}
+
+@keyframes energy-flow {
+  from {
+    background-position: -200% center;
+  }
+
+  to {
+    background-position:  0% center;
+  }
+}
+
+.shell-layer {
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  background: rgba(255,255,255,0.04);
+
+  backdrop-filter: blur(24px);
+
+  box-shadow:
+    0 0 20px rgba(120,180,255,0.08),
+    0 0 40px rgba(120, 244, 255, 0.04);
+}
+
+.input-layer {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+
+  padding-left: 20px;
+
+  color: white;
+
+  font-size: 20px;
+
+  gap: 0px;
+}
+
+.command-input {
+  flex: 1;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+
+  border: none;
+  outline: none;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-family: inherit;
+
+  caret-color: white;
+}
+
+.command-input::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+
+.energy-nucleus {
+  position: relative;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  filter: blur(0.5px);
+}
+
+.gradient-layer {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 50%;
+
+  mix-blend-mode: screen;
+}
+
+.layer-1 {
+  background: #4deeea;
+  opacity: 0.7;
+  filter: blur(10px);
+}
+
+.layer-2 {
+  background: #7b61ff;
+  opacity: 0.7;
+  filter: blur(12px);
+}
+
+.layer-3 {
+  background: #ff66cc;
+  opacity: 0.5;
+  filter: blur(14px);
+}
+
+.jarvis-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  top: 1px;
+
+  color: var(--jarvis-cyan);
+
+  margin-right: 10px;
+
+  font-size: 14px;
+
+  text-shadow:
+    0 0 8px var(--jarvis-cyan),
+    0 0 16px var(--jarvis-cyan);
+}
+
+.orb-core {
+  position: absolute;
+
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  filter: blur(1px);
+
+  box-shadow:
+    0 0 12px white,
+    0 0 30px var(--jarvis-cyan);
+
+  animation: core-pulse 2s ease-in-out infinite;
+}
+
+.orb-ring {
+  position: absolute;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,0.35);
+
+  animation:
+    ring-rotate 12s linear infinite;
+}
+
+.orb-aura {
+  position: absolute;
+
+  width: 80px;
+  height: 80px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(77,238,234,0.25) 0%,
+      rgba(95,140,255,0.15) 35%,
+      rgba(139,92,246,0.08) 60%,
+      transparent 100%
+    );
+
+  filter: blur(20px);
+}
+
+@keyframes core-pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ring-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+.energy-aura {
+  position: absolute;
+
+  inset: -6px;
+
+  border-radius: inherit;
+
+  background: inherit;
+
+  filter: blur(18px);
+
+  opacity: 0.35;
+
+  z-index: -1;
+}
