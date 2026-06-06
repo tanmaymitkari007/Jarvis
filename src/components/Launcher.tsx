@@ -5,11 +5,11 @@ import { useEffect, useRef } from "react";
 import { useLauncherState } from "../hooks/useLauncherState";
 import { LauncherState } from "../types/LauncherState";
 
-import { hideLauncher } from "../services/windowService";
+import { hideLauncher } from "../protocols/services/windowService";
 
 import LauncherEntity from "./LauncherEntity";
 
-import { runProtocol } from "../services/protocolRunner";
+import { runProtocol } from "../protocols/services/protocolRunner";
 
 import { listen } from "@tauri-apps/api/event";
 

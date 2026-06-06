@@ -8,13 +8,10 @@ export async function openUrl(
   });
 }
 
-export async function openVscodeWorkspace(
-  path: string
+export async function runCommand(
+  command: string
 ) {
-  await invoke(
-    "open_vscode_workspace",
-    {
-      path,
-    }
-  );
+  await invoke("run_command", {
+    command,
+  });
 }

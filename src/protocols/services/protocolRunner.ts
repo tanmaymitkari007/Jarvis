@@ -1,6 +1,6 @@
-import protocolsData from "../protocols/protocols.json";
+import protocolsData from "../protocols.json";
 
-import { Protocol } from "../types/Protocol";
+import { Protocol } from "../../types/Protocol";
 
 import { executeAction } from "./actionExecutor";
 
