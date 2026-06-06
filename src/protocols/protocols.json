@@ -8,8 +8,8 @@
       ],
       "actions": [
         {
-          "type": "open_vscode_workspace",
-          "value": "D:/Python_programs/JARVIS"
+          "type": "run_command",
+          "value": "code D:/Python_programs/tai-learn-hub"
         },
         {
           "type": "wait",
@@ -20,6 +20,81 @@
           "value": "https://chatgpt.com/g/g-p-69c6e711e66881918ab1cdb08705dc05/c/6a0ea3d5-a054-83e8-807d-8e0d8670c0c2"
         }
       ]
+    },
+
+    {
+      "name": "shutdown",
+      "aliases": [
+        "sd"
+      ],
+      "actions": [
+        {
+          "type": "run_command",
+          "value": "shutdown /s /t 0"
+        }
+      ]
+    },
+
+    {
+      "name": "restart",
+      "aliases": [
+        "r"
+      ],
+      "actions": [
+        {
+          "type": "run_command",
+          "value": "shutdown /r /t 0"
+        }
+      ]
+    },
+    
+    {
+      "name": "notepad",
+      "aliases": [
+       "np"
+      ],
+      "actions": [
+      {
+      "type": "run_command",
+      "value": "notepad"
+      }
+      ]
+    },
+
+    {
+      "name": "chrome",
+      "aliases": [
+        "ch"
+      ],
+      "actions": [
+        {
+          "type": "run_command",
+          "value": "start chrome"
+        }
+      ]
+    },
+
+
+    {
+     "name": "protocol name",
+     "aliases": [
+     "shortcuts"
+       ],
+     "actions": [
+     {
+      "type": "run_command",
+      "value": "..."
+     },
+     {
+      "type": "open_url",
+      "value": "..."
+     },
+     {
+      "type": "wait",
+      "delay": 1000
+     }
+      ]
     }
-  ]
+
+ ]
 }
