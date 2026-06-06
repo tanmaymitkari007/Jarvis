@@ -1,6 +1,10 @@
 import { Action } from "../types/Action";
 import { openUrl } from "./tauriActions";
 
+import {
+  openVscodeWorkspace,
+} from "./tauriActions";
+
 export async function executeAction(
   action: Action
 ) {
@@ -27,6 +31,12 @@ export async function executeAction(
           resolve,
           action.delay ?? 1000
         )
+      );
+      break;
+
+    case "open_vscode_workspace":
+      await openVscodeWorkspace(
+        action.value
       );
       break;
 

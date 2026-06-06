@@ -7,3 +7,14 @@ export async function openUrl(
     url,
   });
 }
+
+export async function openVscodeWorkspace(
+  path: string
+) {
+  await invoke(
+    "open_vscode_workspace",
+    {
+      path,
+    }
+  );
+}

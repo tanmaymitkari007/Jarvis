@@ -1,20 +1,28 @@
-import jarvisProtocol from "../protocols/jarvis.json";
+import protocolsData from "../protocols/protocols.json";
 
 import { Protocol } from "../types/Protocol";
 
 import { executeAction } from "./actionExecutor";
 
+function getProtocols(): Protocol[] {
+  return protocolsData.protocols as Protocol[];
+}
+
 export function getProtocol(
   protocolName: string
 ): Protocol | null {
-  const protocols: Protocol[] = [
-    jarvisProtocol as Protocol,
-  ];
+  const search = protocolName
+  .trim()
+  .toLowerCase();
 
-  const protocol = protocols.find(
+
+  const protocol = getProtocols().find(
     (p) =>
-      p.name.toLowerCase() ===
-      protocolName.toLowerCase()
+      p.name.toLowerCase() === search ||
+      p.aliases?.some(
+        (alias) =>
+          alias.toLowerCase() === search
+      )
   );
 
   return protocol ?? null;
@@ -26,11 +34,11 @@ export async function runProtocol(
   const protocol =
     getProtocol(protocolName);
 
-   if (!protocol) {
-   throw new Error(
-    `Protocol not found: ${protocolName}`
-   );
-   }
+  if (!protocol) {
+    throw new Error(
+      `Protocol not found: ${protocolName}`
+    );
+  }
 
   for (const action of protocol.actions) {
     await executeAction(action);

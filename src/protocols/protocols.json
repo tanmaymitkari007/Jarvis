@@ -1,0 +1,25 @@
+{
+  "protocols": [
+    {
+      "name": "TAI-Learn HUB",
+      "aliases": [
+        "tlh",
+        "prtc1"
+      ],
+      "actions": [
+        {
+          "type": "open_vscode_workspace",
+          "value": "D:/Python_programs/JARVIS"
+        },
+        {
+          "type": "wait",
+          "delay": 1000
+        },
+        {
+          "type": "open_url",
+          "value": "https://chatgpt.com/g/g-p-69c6e711e66881918ab1cdb08705dc05/c/6a0ea3d5-a054-83e8-807d-8e0d8670c0c2"
+        }
+      ]
+    }
+  ]
+}

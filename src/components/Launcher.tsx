@@ -87,6 +87,14 @@ export default function Launcher() {
   const handleCommandSubmit = async (
     command: string
   ) => {
+
+
+       console.log(
+  "Submitted command:",
+  JSON.stringify(command)
+);
+
+
     try {
       setState(
         LauncherState.COLLAPSING

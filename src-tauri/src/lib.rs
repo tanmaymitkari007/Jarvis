@@ -11,6 +11,20 @@ fn open_url(url: String) -> Result<(), String> {
 }
 
 #[tauri::command]
+fn open_vscode_workspace(
+    path: String,
+) -> Result<(), String> {
+    std::process::Command::new(
+        r"D:\Microsoft VS Code\bin\code.cmd"
+    )
+    .arg(path)
+    .spawn()
+    .map_err(|e| e.to_string())?;
+
+    Ok(())
+}
+
+#[tauri::command]
 fn show_launcher(
     window: tauri::WebviewWindow,
 ) -> Result<(), String> {
@@ -70,6 +84,7 @@ pub fn run() {
         .invoke_handler(
             tauri::generate_handler![
                 open_url,
+                open_vscode_workspace,
                 show_launcher,
                 hide_launcher
             ]
