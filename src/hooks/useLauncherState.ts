@@ -3,8 +3,8 @@ import { LauncherState } from "../types/LauncherState";
 
 export function useLauncherState() {
   const [state, setState] = useState<LauncherState>(
-    LauncherState.ORB
-  );
+  LauncherState.HIDDEN
+   );
 
   return {
     state,

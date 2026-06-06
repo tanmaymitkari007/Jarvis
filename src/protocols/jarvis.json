@@ -1,0 +1,13 @@
+{
+  "name": "jarvis",
+  "actions": [
+    {
+      "type": "open_app",
+      "value": "code"
+    },
+    {
+      "type": "open_url",
+      "value": "https://chatgpt.com"
+    }
+  ]
+}

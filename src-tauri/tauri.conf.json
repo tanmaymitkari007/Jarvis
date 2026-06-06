@@ -15,12 +15,16 @@
         "title": "Jarvis",
         "width": 500,
         "height": 180,
+
         "decorations": false,
         "transparent": true,
         "alwaysOnTop": true,
         "shadow": false,
         "resizable": false,
-        "center": true 
+        "center": true,
+        
+        "skipTaskbar": true,
+        "visible": false 
        }
     ],
     "security": {

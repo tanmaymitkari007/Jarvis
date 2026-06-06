@@ -9,5 +9,9 @@ export enum LauncherState {
 
   EXECUTING = "EXECUTING",
 
+  SUCCESS = "SUCCESS",
+
+  ERROR = "ERROR",
+
   COLLAPSING = "COLLAPSING",
 }

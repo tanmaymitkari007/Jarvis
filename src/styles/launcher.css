@@ -20,7 +20,7 @@ body,
   --jarvis-shell: rgba(255, 255, 255, 0.06);
 
   /* Border */
-  --jarvis-border: rgba(255, 255, 255, 0.08);
+  --jarvis-border: rgba(83, 70, 70, 0.08);
 
   /* Text */
   --jarvis-text: rgba(255, 255, 255, 0.95);
@@ -146,7 +146,7 @@ body {
   width: 2px;
   height: 20px;
 
-  background: white;
+  background: rgb(255, 254, 254);
 
   animation: blink 1s infinite;
 }
@@ -170,27 +170,21 @@ body {
 
   background: rgba(255,255,255,0.05);
 
-  border: 1px solid rgba(255,255,255,0.08);
-
   backdrop-filter: blur(30px);
 
   box-shadow:
-  0 0 3px rgb(90, 183, 208),
-  0 0 6px rgb(68, 125, 218),
-  0 0 9px rgb(57, 81, 164),
-  0 0 12px rgb(209, 129, 231);
-
+  0 0 4px rgb(90, 183, 208),
+  0 0 8px rgb(68, 125, 218),
+  0 0 12px rgb(57, 81, 164),
+  0 0 15px rgb(209, 129, 231),
+  0 0 16px rgb(0, 0, 0);
   overflow: hidden;
 }
 
 .energy-core {
   position: absolute;
 
-  inset: 5px;
-
-  width: calc(100% - 10px);
-  height: calc(100% - 10px);
-
+  inset: 0px;
   border-radius: inherit;
 
   background:
@@ -208,7 +202,10 @@ body {
 
   animation: energy-flow 4s linear infinite;
 
-  opacity: 0.85;
+  opacity: 0.95;
+  border-color: #191919;
+  border-style:solid;
+  border-width:5px
 }
 
 @keyframes energy-flow {
@@ -248,7 +245,7 @@ body {
 
   padding-left: 20px;
 
-  color: white;
+  color: rgb(255, 255, 255);
 
   font-size: 20px;
 
@@ -266,13 +263,13 @@ body {
   border: none;
   outline: none;
 
-  color: white;
-
-  font-size: 18px;
+  color: rgb(255, 255, 255);
+  
+  font-size: 20px;
 
   font-family: inherit;
 
-  caret-color: white;
+  caret-color: rgb(255, 255, 255);
 }
 
 .command-input::placeholder {
@@ -434,4 +431,17 @@ body {
   opacity: 0.35;
 
   z-index: -1;
+}
+
+.error-message {
+  position: absolute;
+
+  right: 16px;
+
+  font-size: 15px;
+  
+  font-weight: 1000;
+  
+
+  color: #ff0000;
 }
