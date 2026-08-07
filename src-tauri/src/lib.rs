@@ -15,17 +15,51 @@ fn open_url(url: String) -> Result<(), String> {
 #[tauri::command]
 fn run_command(
     command: String,
+    shell: Option<String>,
 ) -> Result<(), String> {
+    use std::process::Command;
+
     const CREATE_NO_WINDOW: u32 = 0x08000000;
 
-    std::process::Command::new("cmd")
-        .args([
-            "/C",
-            &command,
-        ])
-        .creation_flags(CREATE_NO_WINDOW)
-        .spawn()
-        .map_err(|e| e.to_string())?;
+    let shell = shell.unwrap_or_else(|| "cmd".to_string());
+
+    match shell.as_str() {
+        "cmd" => {
+            Command::new("cmd")
+                .args(["/C", &command])
+                .creation_flags(CREATE_NO_WINDOW)
+                .spawn()
+                .map_err(|e| e.to_string())?;
+        }
+
+        "powershell" => {
+            Command::new("powershell")
+                .args(["-Command", &command])
+                .creation_flags(CREATE_NO_WINDOW)
+                .spawn()
+                .map_err(|e| e.to_string())?;
+        }
+
+        "wsl" => {
+            Command::new("wsl")
+                .args([
+                    "--",
+                    "bash",
+                    "-c",
+                    &command,
+                ])
+                .creation_flags(CREATE_NO_WINDOW)
+                .spawn()
+                .map_err(|e| e.to_string())?;
+        }
+
+        _ => {
+            return Err(format!(
+                "Unknown shell: {}",
+                shell
+            ));
+        }
+    }
 
     Ok(())
 }

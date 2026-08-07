@@ -17,7 +17,8 @@ export async function executeAction(
 
     case "run_command":
       await runCommand(
-        action.value
+        action.value,
+        action.shell
       );
       break;
 

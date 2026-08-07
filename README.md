@@ -480,3 +480,49 @@ Feel free to use, modify, and distribute this project.
 ## Acknowledgements
 
 Built by Tanmay Mitkari as a personal workflow automation tool to eliminate repetitive setup steps and streamline daily development workflows.
+
+# Update 1.1
+
+````md
+## v1.1 — Multi-Shell Command Execution
+
+The protocol system now supports shell-specific command execution while remaining fully backward compatible.
+
+### Supported shells
+
+- cmd (default)
+- powershell
+- wsl
+
+### Legacy Protocol
+
+```json
+{
+  "type": "run_command",
+  "value": "echo Hello"
+}
+````
+
+### PowerShell
+
+```json
+{
+  "type": "run_command",
+  "shell": "powershell",
+  "value": "Get-Process"
+}
+```
+
+### WSL
+
+```json
+{
+  "type": "run_command",
+  "shell": "wsl",
+  "value": "pwd"
+}
+```
+
+If no shell is specified, JARVIS automatically falls back to the Windows Command Prompt (`cmd`) to preserve compatibility with existing protocols.
+
+````

@@ -29,7 +29,7 @@
     {
       "name": "notepad",
       "aliases": [
-       "np"
+       "n"
       ],
       "actions": [
       {
@@ -42,7 +42,7 @@
     {
       "name": "chrome",
       "aliases": [
-        "ch"
+        "chrome"
       ],
       "actions": [
         {

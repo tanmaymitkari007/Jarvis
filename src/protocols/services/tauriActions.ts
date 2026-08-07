@@ -9,9 +9,11 @@ export async function openUrl(
 }
 
 export async function runCommand(
-  command: string
+  command: string,
+  shell?: "cmd" | "powershell" | "wsl"
 ) {
   await invoke("run_command", {
     command,
+    shell,
   });
 }
